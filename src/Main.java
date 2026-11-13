@@ -11,7 +11,7 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        //100 data sesuai ketentuan modul
+        // 100 data sesuai ketentuan modul
         int[] influencerFollowers = {
                 1200, 4500, 300, 8900, 15000, 2300, 7800, 9200, 4100, 600,
                 5300, 1100, 9900, 3400, 8700, 12000, 450, 6700, 2100, 14000,
@@ -41,7 +41,9 @@ public class Main {
         System.out.println("2. Selection Sort");
         System.out.println("3. Insertion Sort");
         System.out.println("4. Shell Sort");
-        System.out.print("Masukkan pilihan (1-4): ");
+        System.out.println("5. Merge Sort");
+        System.out.println("6. Quick Sort");
+        System.out.print("Masukkan pilihan (1-6): ");
         int algoChoice = scanner.nextInt();
 
         System.out.println("\nPilih Urutan Pengurutan:");
@@ -78,8 +80,6 @@ public class Main {
             InsertionSort insertion = new InsertionSort();
             if (orderChoice == 1) {
                 insertion.insertionSortAscending(dataToSort);
-            } else if (orderScoreCheck(orderChoice, dataToSort, insertion)) {
-                //handled below
             } else if (orderChoice == 2) {
                 insertion.insertionSortDescending(dataToSort);
             } else {
@@ -98,6 +98,28 @@ public class Main {
                 scanner.close();
                 return;
             }
+        } else if (algoChoice == 5) {
+            MergeSort merge = new MergeSort();
+            if (orderChoice == 1) {
+                merge.mergeSortAscending(dataToSort);
+            } else if (orderChoice == 2) {
+                merge.mergeSortDescending(dataToSort);
+            } else {
+                System.out.println("Pilihan urutan tidak valid.");
+                scanner.close();
+                return;
+            }
+        } else if (algoChoice == 6) {
+            QuickSort quick = new QuickSort();
+            if (orderChoice == 1) {
+                quick.quickSortAscending(dataToSort);
+            } else if (orderChoice == 2) {
+                quick.quickSortDescending(dataToSort);
+            } else {
+                System.out.println("Pilihan urutan tidak valid.");
+                scanner.close();
+                return;
+            }
         } else {
             System.out.println("Pilihan algoritma tidak valid.");
             scanner.close();
@@ -110,9 +132,5 @@ public class Main {
         System.out.println("==================================================");
 
         scanner.close();
-    }
-
-    private static boolean orderScoreCheck(int c, int[] d, InsertionSort ins) {
-        return false;
     }
 }
